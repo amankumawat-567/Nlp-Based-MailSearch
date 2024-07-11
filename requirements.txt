@@ -1,0 +1,14 @@
+numpy
+pandas
+sqlalchemy
+transformers
+torch
+pyodbc
+scikit-learn
+langchain_community
+langchain
+Cohere
+nltk
+spacy
+dateutil
+streamlit
