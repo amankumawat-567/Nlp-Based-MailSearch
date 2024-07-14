@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[4]:
-
-
 import pandas as pd
 import email
 from email import policy
@@ -36,10 +30,6 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 from nlp_date_parser import nlp_date_parser
-
-
-# In[5]:
-
 
 class EmailSearch:
     def __init__(self, connection_string, COHERE_API_KEY, thr=0.65, D='auto'):
@@ -395,10 +385,3 @@ class EmailSearch:
             df = df.set_index('EmailId')
             df = df.reindex(ids).reset_index()
         return df
-
-
-# In[6]:
-
-
-#jupyter nbconvert --to script gmail.ipynb
-

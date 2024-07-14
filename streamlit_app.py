@@ -1,18 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-#!pip install streamlit
-
-
-# In[ ]:
-
-
 import pandas as pd
 import streamlit as st
-from gmail import EmailSearch  # Adjust the import path based on your file structure
+from gmail import EmailSearch
 
 @st.cache_resource
 def init_emailsearch():
@@ -20,15 +8,15 @@ def init_emailsearch():
         "Driver={ODBC Driver 17 for SQL Server};"
         "Server=localhost\\SQLEXPRESS;"
         "Database=ENRON_Emails;"
-        "UID='Your Uid';"
-        "PWD='Password';"
+        "UID='YOUR_UID';"
+        "PWD='YOUR_PASSWARD';"
     )
 
-    COHERE_API_KEY = 'Your_cohere_apikey'
+    COHERE_API_KEY = 'PAST_YOUR_COHERE_API_KEY_HERE'
 
     emailsearch = EmailSearch(connection_string=connection_string, COHERE_API_KEY=COHERE_API_KEY, thr=0.65)
     emailsearch.get_engine()
-    emailsearch.Create_database(csv_file_path='small_enron.csv')
+    emailsearch.Create_database(csv_file_path='small_enron.csv') # ADD_YOUR_DATASET_HERE
     
     return emailsearch
 
@@ -48,22 +36,3 @@ if query:
         st.dataframe(result_df.head())
     else:
         st.write("No results found for the given query.")
-
-
-# In[ ]:
-
-
-#streamlit run Mail.py
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
